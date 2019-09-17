@@ -32,3 +32,13 @@ body > .container {
   code {
     font-size: 80%;
   }  
+  
+  main.container{
+    padding-top:60px;
+  }
+
+  /* for flash messages */
+  .alert p{
+    margin: 0;
+    padding: 0;
+  }

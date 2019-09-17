@@ -1,5 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
+// forms module
+import { FormsModule } from '@angular/forms';
+
+// font awesome
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+// angular2 flash messages
+import { FlashMessagesModule } from 'angular2-flash-messages';
+
 // firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule , AngularFireDatabase } from 'angularfire2/database';
@@ -43,6 +53,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    AngularFontAwesomeModule,
+    FlashMessagesModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase, 'clientPanelApp'),
     AngularFireAuthModule
