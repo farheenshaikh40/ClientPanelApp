@@ -21,11 +21,26 @@ export class ClientService {
     );
   }
 
+  // for client list
   getClients(){
     return this.clients
   }
 
   newClient(client: Client){
     this.clientRef.push(client);
+  }
+
+  // for single client
+  getClient(id:string){
+    this.client = this.db.object('/clients/'+id).valueChanges();
+    return this.client;
+  }
+
+  updateClient(id:string, client:Client){
+    return this.clientRef.update(id, client);
+  }
+
+  deleteClient(id:string){
+    return this.clientRef.remove(id);
   }
 }

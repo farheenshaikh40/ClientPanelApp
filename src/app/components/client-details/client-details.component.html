@@ -1,3 +1,64 @@
-<p>
-  client-details works!
-</p>
+<div class="row">
+  <div class="col-md-6">
+    <a href="#" routerLink="/" class="btn btn-link">
+      <i class="fa fa-arrow-circle-o-left"></i> Back to Dashboard
+    </a>
+  </div>
+  <div class="col-md-6">
+    <div class="btn-group pull-right">
+      <a href="#" class="btn btn-dark btn-sm" [routerLink]="['/edit-client/'+id]">Edit</a>
+      <a href="#" class="btn btn-danger btn-sm" (click)="onDeleteClick()">Delete</a>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="card" *ngIf="client">
+  <h5 class="card-header">
+    {{ client.firstName }} {{ client.lastName}}
+  </h5>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-8">
+        <h6>
+          Client Id : {{ id }}
+        </h6>
+      </div>
+      <div class="col-md-4">
+        <h6 class="pull-right">
+          Balance : 
+          <span
+            [class.text-danger]="hasBalance"
+            [class.text-success]="!hasBalance"
+          >
+            {{ client.balance | currency:"USD":true }}
+            <small>
+              <a href="javascript:void(0)" (click)="showBalanceUpdateInput = !showBalanceUpdateInput">
+                <i class="fa fa-pencil"></i>
+              </a>
+            </small>
+          </span>
+
+        </h6>
+        <div class="clearfix">
+          <form *ngIf="showBalanceUpdateInput" (submit)="updateBalance(id)">
+            <div class="input-group">
+              <input type="text" name="balance" class="form-control" [(ngModel)]="client.balance">
+              <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit">Update</button>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <ul class="list-group">
+      <li class="list-group-item">
+        Contact Email : {{ client.email }}
+      </li>
+      <li class="list-group-item">
+          Phone : {{ client.phone }}
+        </li>
+    </ul>
+  </div>
+</div>
