@@ -107,6 +107,7 @@
             [(ngModel)]="client.balance"
             name="balance"
             #ClientBalance="ngModel"
+            [disabled]="disableBalanceOnEdit"
           >
         </div>
         <div class="form-group">

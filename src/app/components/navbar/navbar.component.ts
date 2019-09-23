@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FlashMessagesService } from 'angular2-flash-messages';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { SettingsService } from 'src/app/services/settings.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,7 +16,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     private flashMessagesService: FlashMessagesService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private settingsService: SettingsService
   ) { }
 
   ngOnInit() {
@@ -27,6 +29,8 @@ export class NavbarComponent implements OnInit {
         this.isLoggedIn = false;
       }
     })
+
+    this.showRegister = this.settingsService.getSettings().allowRegistration
   }
 
   onLogoutClick(){

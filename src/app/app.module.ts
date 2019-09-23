@@ -25,6 +25,7 @@ import { SettingsService } from './services/settings.service';
 
 // Guard
 import { AuthGuard } from './guard/auth.guard'
+import { RegisterGuard } from './guard/register.guard'
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -71,7 +72,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     ClientService,
     AuthService,
     AuthGuard,
-    SettingsService
+    SettingsService,
+    RegisterGuard
   ],
   bootstrap: [AppComponent]
 })
