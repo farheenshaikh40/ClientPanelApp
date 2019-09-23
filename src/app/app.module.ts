@@ -20,6 +20,11 @@ import { environment } from '../environments/environment'
 
 // services
 import { ClientService } from './services/client.service';
+import { AuthService } from './services/auth.service';
+import { SettingsService } from './services/settings.service';
+
+// Guard
+import { AuthGuard } from './guard/auth.guard'
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -63,7 +68,10 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
   providers: [
     AngularFireDatabase,
     AngularFireDatabaseModule,
-    ClientService
+    ClientService,
+    AuthService,
+    AuthGuard,
+    SettingsService
   ],
   bootstrap: [AppComponent]
 })
