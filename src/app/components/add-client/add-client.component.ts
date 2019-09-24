@@ -27,7 +27,7 @@ export class AddClientComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.disableBalanceOnAdd = this.settingsService.getSettings().disbaleBalanceOnAdd;
+    this.disableBalanceOnAdd = this.settingsService.getSettings().disableBalanceOnAdd;
   }
 
   onSubmit({value, valid}:{value:Client, valid:boolean}){

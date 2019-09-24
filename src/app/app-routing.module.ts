@@ -8,6 +8,8 @@ import { ClientDetailsComponent } from './components/client-details/client-detai
 import { EditClientComponent } from './components/edit-client/edit-client.component';
 import { AuthGuard } from './guard/auth.guard';
 import { RegisterGuard } from './guard/register.guard';
+import { SettingsComponent } from './components/settings/settings.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, canActivate:[AuthGuard] },
@@ -15,7 +17,9 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'add-client', component: AddClientComponent, canActivate:[AuthGuard]},
   { path: 'client-details/:id', component: ClientDetailsComponent,canActivate:[AuthGuard]},
-  { path: 'edit-client/:id', component: EditClientComponent, canActivate:[AuthGuard]}
+  { path: 'edit-client/:id', component: EditClientComponent, canActivate:[AuthGuard]},
+  { path: 'settings', component: SettingsComponent, canActivate:[AuthGuard]},
+  { path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({

@@ -1,3 +1,33 @@
-<p>
-  settings works!
-</p>
+<div class="row">
+    <div class="col-md-6">
+      <a href="#" routerLink="/" class="btn btn-link">
+        <i class="fa fa-arrow-circle-o-left"></i> Back to Dashboard
+      </a>
+    </div>
+  </div>
+  <hr>
+  <div class="card">
+    <h5 class="card-header">
+      Edit Settings
+    </h5>
+    <div class="card-body">
+      <div class="row">
+        <form (submit)="onSubmit()" class="col-md-3 mx-auto">
+          <div class="form-check">
+            <input type="checkbox"  class="form-check-input" name="allowRegistration" id="allowRegistration" [checked]="settings.allowRegistration" (change)="settings.allowRegistration = !settings.allowRegistration">
+            <label for="allowRegistration" class="form-check-label">Allow Registration</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="disableBalanceOnAdd" id="disableBalanceOnAdd" [checked]="settings.disableBalanceOnAdd" (change)="settings.disableBalanceOnAdd = !settings.disableBalanceOnAdd">
+            <label for="disableBalanceOnAdd" class="form-check-label">Disable Balance On Add</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" name="disableBalanceOnEdit" id="disableBalanceOnEdit" [checked]="settings.disableBalanceOnEdit" (change)="settings.disableBalanceOnEdit = !settings.disableBalanceOnEdit">
+            <label for="disableBalanceOnEdit" class="form-check-label">Disable Balance On Edit</label>
+          </div>
+          <input type="submit" value="Submit" class="btn btn-primary btn-block">
+        </form>
+      </div>
+    </div>
+  </div>
+  
